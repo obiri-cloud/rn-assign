@@ -1,16 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, SafeAreaViewr } from 'react-native';
-import { Header } from 'react-native/Libraries/NewAppScreen';
+import { StyleSheet, Text } from 'react-native';
+import MainHeader from './Components/mainHeader';
 import Categories from './Components/Categories';
 import SearchBar from './Components/SearchBar';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import OngoingTask from './Components/OngoingTask';
 
 export default function App() {
   return (
-    <SafeAreaView>
-      <Header />
-      <Categories />
+    <SafeAreaView style={styles.container}>
+      <StatusBar style="auto" />
+      <MainHeader />
       <SearchBar />
+      <Categories />
+      <OngoingTask />
     </SafeAreaView>
   );
 }
@@ -18,8 +21,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor:'#E8D1BA',
+    paddingTop: 30,
   },
 });

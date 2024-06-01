@@ -3,10 +3,8 @@ import { FlatList, Image, StyleSheet, Text, View } from "react-native";
 
 const Categories = () => {
   return (
-    <View>
-      <Text style={{ fontSize: 20, fontWeight: "bold", marginBottom: 10 }}>
-        Categories
-      </Text>
+    <View style={styles.container}>
+      <Text style={styles.header}>Categories</Text>
       <FlatList
         style={styles.flatlist}
         horizontal
@@ -24,29 +22,59 @@ const Categories = () => {
         ]}
         renderItem={({ item }) => (
           <View style={styles.card}>
-            <Text style={{ fontSize: 16, fontWeight: "bold" }}>{item.key}</Text>
-            <Text style={{ fontSize: 12, fontWeight: 400 }}>{item.tasks}</Text>
-            <Image
-              source={item.image}
-              style={{ resizeMode: "contain", width: 120, height: 120 }}
-            />
+            <Text style={styles.cardTitle}>{item.key}</Text>
+            <Text style={styles.cardTasks}>{item.tasks}</Text>
+            <Image source={item.image} style={styles.cardImage} />
           </View>
         )}
+        keyExtractor={(item) => item.key}
       />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+    backgroundColor:'#E8D1BA'
+  },
+  header: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
+    color: "#333",
+  },
+  flatlist: {
+    marginTop: 10,
+  },
   card: {
     height: 180,
-    width: 190,
+    width: 150,
     backgroundColor: "white",
     borderRadius: 10,
     padding: 10,
-    marginRight: 10,
+    marginRight: 15,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
-  flatlist: {},
+  cardTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  cardTasks: {
+    fontSize: 12,
+    fontWeight: "400",
+    marginBottom: 10,
+  },
+  cardImage: {
+    resizeMode: "contain",
+    width: 100,
+    height: 100,
+  },
 });
 
 export default Categories;

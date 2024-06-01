@@ -5,10 +5,20 @@ const SearchBar = () => {
   return (
     <View style={styles.container}>
       <View style={styles.searchbar}>
-        <Image source={require("../assets/mynaui_search.png")} height={24} />
-        <TextInput placeholder="Search" style={styles.input} />
+        <Image
+          source={require("../assets/mynaui_search.png")}
+          style={styles.searchIcon}
+        />
+        <TextInput
+          placeholder="Search"
+          style={styles.input}
+          placeholderTextColor="gray"
+        />
       </View>
-      <Image source={require("../assets/Filter.png")} width={50} height={48} />
+      <Image
+        source={require("../assets/Filter.png")}
+        style={styles.filterIcon}
+      />
     </View>
   );
 };
@@ -18,19 +28,31 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    gap: 20,
+    // backgroundColor: 'black',
+    padding: 10,
   },
   searchbar: {
     flex: 1,
     flexDirection: "row",
-    gap: 10,
     alignItems: "center",
     backgroundColor: "white",
     borderRadius: 10,
-    padding: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+    marginRight: 10,
   },
   input: {
     flex: 1,
+    marginLeft: 10,
+    color: 'black',
+  },
+  searchIcon: {
+    width: 24,
+    height: 24,
+  },
+  filterIcon: {
+    width: 48,
+    height: 48,
   },
 });
 

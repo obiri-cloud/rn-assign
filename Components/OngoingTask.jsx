@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 
 const OngoingTask = () => {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <Text style={styles.header}>Ongoing Task</Text>
       <FlatList
         data={[
@@ -25,7 +25,7 @@ const OngoingTask = () => {
         ]}
         renderItem={({ item }) => (
           <View style={styles.card}>
-            <Text style={{ fontSize: 16, fontWeight: "bold" }}>{item.key}</Text>
+            <Text style={styles.cardText}>{item.key}</Text>
           </View>
         )}
       />
@@ -34,20 +34,34 @@ const OngoingTask = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor:'#E8D1BA'
+  },
   header: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 10,
+    marginBottom: 15,
+    color: "#333",
   },
   card: {
-    height: 120,
+    height: 100,
     borderRadius: 10,
-    backgroundColor: "white",
-    marginBottom: 10,
+    backgroundColor: "#fff",
+    marginBottom: 15,
     justifyContent: "center",
-    paddingLeft: 10,
-    borderWidth: 1,
-    borderColor: "#E8D1BA",
+    paddingLeft: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  cardText: {
+    fontSize: 18,
+    fontWeight: "500",
+    color: "#333",
   },
 });
 
